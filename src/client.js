@@ -484,7 +484,7 @@
 
     // Is Flash.  Check if Flash is installed.
     isFlash: function() {
-      var objPlugin = navigator.plugins["Shockwave Flash"];
+      var objPlugin = navigator.plugins["Shockwave Flash"] || false;
       if (objPlugin) {
         return true;
       }
