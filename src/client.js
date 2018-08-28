@@ -460,12 +460,13 @@
     // Get Plugins.  Return a string containing a list of installed plugins.
     getPlugins: function() {
       var pluginsList = "";
-
-      for (var i = 0; i < navigator.plugins.length; i++) {
-        if (i == navigator.plugins.length - 1) {
-          pluginsList += navigator.plugins[i].name;
-        } else {
-          pluginsList += navigator.plugins[i].name + ", ";
+      if (navigator.plugins instanceof PluginArray) {
+        for (var i = 0; i < navigator.plugins.length; i++) {
+          if (i == navigator.plugins.length - 1) {
+            pluginsList += navigator.plugins[i].name;
+          } else {
+            pluginsList += navigator.plugins[i].name + ", ";
+          }
         }
       }
       return pluginsList;
