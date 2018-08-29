@@ -746,13 +746,16 @@ var deployJava = function() {
       }
     },
     refresh: function() {
-      navigator.plugins.refresh(false);
-      var o = this.getBrowser();
-      if (o == "Netscape Family" && this.allowPlugin()) {
-        var p = document.getElementById("deployJavaPlugin");
-        if (p == null) {
-          this.writeEmbedTag()
+      try {
+        navigator.plugins.refresh(false);
+        var o = this.getBrowser();
+        if (o == "Netscape Family" && this.allowPlugin()) {
+          var p = document.getElementById("deployJavaPlugin");
+          if (p == null) {
+            this.writeEmbedTag()
+          }
         }
+      } catch (error) { 
       }
     },
     writeEmbedTag: function() {

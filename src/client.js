@@ -460,7 +460,7 @@
     // Get Plugins.  Return a string containing a list of installed plugins.
     getPlugins: function() {
       var pluginsList = "";
-      if (navigator.plugins instanceof PluginArray) {
+      if (navigator.plugins) {
         for (var i = 0; i < navigator.plugins.length; i++) {
           if (i == navigator.plugins.length - 1) {
             pluginsList += navigator.plugins[i].name;
@@ -678,21 +678,25 @@
         return "";
       }
 
-      // https://www.browserleaks.com/canvas#how-does-it-work
-      // Text with lowercase/uppercase/punctuation symbols
-      var txt = 'ClientJS,org <canvas> 1.0';
-      ctx.textBaseline = "top";
-      // The most common type
-      ctx.font = "14px 'Arial'";
-      ctx.textBaseline = "alphabetic";
-      ctx.fillStyle = "#f60";
-      ctx.fillRect(125, 1, 62, 20);
-      // Some tricks for color mixing to increase the difference in rendering
-      ctx.fillStyle = "#069";
-      ctx.fillText(txt, 2, 15);
-      ctx.fillStyle = "rgba(102, 204, 0, 0.7)";
-      ctx.fillText(txt, 4, 17);
-      return canvas.toDataURL();
+      try {
+        // https://www.browserleaks.com/canvas#how-does-it-work
+        // Text with lowercase/uppercase/punctuation symbols
+        var txt = 'ClientJS,org <canvas> 1.0';
+        ctx.textBaseline = "top";
+        // The most common type
+        ctx.font = "14px 'Arial'";
+        ctx.textBaseline = "alphabetic";
+        ctx.fillStyle = "#f60";
+        ctx.fillRect(125, 1, 62, 20);
+        // Some tricks for color mixing to increase the difference in rendering
+        ctx.fillStyle = "#069";
+        ctx.fillText(txt, 2, 15);
+        ctx.fillStyle = "rgba(102, 204, 0, 0.7)";
+        ctx.fillText(txt, 4, 17);
+        return canvas.toDataURL();
+      } catch (error) {
+        return "";
+      }
     }
   };
 
