@@ -101,7 +101,6 @@
 //
 //      client.getPlugins();
 //      client.isJava();
-//      client.getJavaVersion();
 //      client.isFlash();
 //      client.isSilverlight();
 //      client.getSilverlightVersion();
@@ -473,11 +472,6 @@
     // Is Java.  Check if Java is installed.
     isJava: function() {
       return navigator.javaEnabled();
-    },
-
-    // Get Java Version.  Return a string containing the Java Version.
-    getJavaVersion: function() {
-      return deployJava.getJREs().toString();
     },
 
     // Is Flash.  Check if Flash is installed.
