@@ -17,7 +17,6 @@
 // Dependencies Include:
 //      - ua-parser.js
 //      - fontdetect.js
-//      - swfobject.js
 //      - murmurhash3.js
 
 // BROWSER FINGERPRINT DATA POINTS
@@ -104,7 +103,6 @@
 //      client.isJava();
 //      client.getJavaVersion();
 //      client.isFlash();
-//      client.getFlashVersion();
 //      client.isSilverlight();
 //      client.getSilverlightVersion();
 //
@@ -489,15 +487,6 @@
         return true;
       }
       return false;
-    },
-
-    // Get Flash Version.  Return a string containing the Flash Version.
-    getFlashVersion: function() {
-      if (this.isFlash()) {
-        objPlayerVersion = swfobject.getFlashPlayerVersion();
-        return objPlayerVersion.major + "." + objPlayerVersion.minor + "." + objPlayerVersion.release;
-      }
-      return "";
     },
 
     // Is Silverlight.  Check if Silverlight is installed.
