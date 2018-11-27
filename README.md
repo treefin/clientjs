@@ -139,9 +139,7 @@ You can find documentation on each method at [clientjs.org](https://clientjs.org
 
   client.getPlugins();
   client.isJava();
-  client.getJavaVersion();
   client.isFlash();
-  client.getFlashVersion();
   client.isSilverlight();
   client.getSilverlightVersion();
 
@@ -179,7 +177,6 @@ All dependencies are included into `client.min.js` when the `build.sh` bash file
 Dependencies Include:
 - ua-parser.js
 - fontdetect.js
-- swfobject.js
 - murmurhash3.js
 
 ## Contributing
