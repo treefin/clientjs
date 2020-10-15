@@ -127,12 +127,16 @@
 (function(scope) {
   'use strict';
 
+  const Detector = require('./vendor/fontdetect');
+  const murmurhash3_32_gc = require('./vendor/murmurhash3');
+  const UAParser = require('ua-parser-js');
+
   var browserData; // Global user agent browser object.
   var fontDetective; // Global font detective object.
 
   // ClientJS constructor which sets the browserData object and returs the client object.
   var ClientJS = function() {
-    var parser = new(window.UAParser || exports.UAParser);
+    var parser = new UAParser;
     browserData = parser.getResult();
     fontDetective = new Detector();
     return this;
@@ -683,8 +687,5 @@
     }
   };
 
-  if (typeof module === 'object' && typeof exports !== "undefined") {
-    module.exports = ClientJS;
-  }
-  scope.ClientJS = ClientJS;
+  module.exports = ClientJS;
 })(window);
