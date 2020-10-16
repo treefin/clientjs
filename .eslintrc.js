@@ -3,12 +3,14 @@
 module.exports = {
   root: true,
   parserOptions: {
-    ecmaVersion: 2015,
+    ecmaVersion: 2018,
     sourceType: 'script',
   },
   extends: ['eslint:recommended'],
   env: {
     node: true,
-    browser: true,
   },
+  rules: {
+    'strict': 'error'
+  }
 };
